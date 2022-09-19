@@ -1,0 +1,1 @@
+RJSY.Azure.CustomBindingAuth
