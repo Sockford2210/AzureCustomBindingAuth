@@ -12,16 +12,13 @@ using RJSY.Azure.CustomBindingAuth.Function.Models;
 
 namespace RJSY.Azure.CustomBindingAuth.Function
 {
-    public static class AuthTestApi
+    public class AuthTestApi
     {
         [FunctionName("AuthTest")]
-        public static async Task<IActionResult> AuthTest(
-            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = "test")] HttpRequest req,
-            ILogger log,
+        public async Task<IActionResult> AuthTest(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "test")] HttpRequest req,
             [AzureAdToken] AzureAdToken token)
         {
-            log.LogInformation("C# HTTP trigger function processed a request.");
-
             if (token == null)
             {
                 return new UnauthorizedResult();
