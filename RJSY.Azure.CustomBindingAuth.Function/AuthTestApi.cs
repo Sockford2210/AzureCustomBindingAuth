@@ -16,7 +16,7 @@ namespace RJSY.Azure.CustomBindingAuth.Function
     {
         [FunctionName("AuthTest")]
         public static async Task<IActionResult> AuthTest(
-            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "test")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = "test")] HttpRequest req,
             ILogger log,
             [AzureAdToken] AzureAdToken token)
         {
